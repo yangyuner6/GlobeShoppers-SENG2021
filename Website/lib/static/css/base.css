@@ -1,0 +1,126 @@
+body {
+	background-color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#heading-button {
+	border:none;
+	width: 20%;
+	margin-left: 40%;
+}
+
+#webname {
+	width: 100%;
+}
+
+#logo-pic {
+	width: 30px;
+	height: 30px;
+}
+
+#profile-picture {
+	width: 30px;
+	height: 30px;
+}
+
+#mail-picture {
+	width: 30px;
+	height: 30px;
+}
+
+.pure-menu-horizontal{
+	border-bottom-style: solid;
+	width: 100%;
+	border-color: #e3e4e5;
+}
+
+.pure-menu-list {
+	width: 90%;
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+#searchbox {
+	padding-left: 10px;
+	width: 400px;
+}
+
+#base-page {
+	top: 0px;
+	position: fixed;
+	z-index: 1;
+	background-color: white;
+}
+
+#Block-body {
+	padding-top: 10%;
+}
+
+#main-content-wrap {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+#outro-part {
+	float: left;
+	bottom: 0;
+	width: 100%;
+	background-color: white; 
+	color: #a7a8aa;
+	height: 250px;
+	text-align: center;
+	border-top-style: solid;
+	border-color: #7f8082;
+	padding-top: 10px;
+	position: relative;
+}
+
+#outroname {
+	width: 60%;
+}
+
+#outro-links {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	margin-left: 20%;
+}
+
+.outro-buttons {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	width: 70%;
+	background-color: white;
+	border: none;
+}
+
+.comingapp {
+	width: 20%;
+}
+
+.borders {
+	border-top: 1px solid #e5e6e8;
+	width: 80%;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+#jumpbutton {
+	background-color: #e5e6e8; 
+	color: #a7a8aa; 
+	border: none;
+	width: 3%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: right;
+	position: fixed;
+	right: 0;
+}
+
+#jumpbutton:hover {
+	background-color: #a7a8aa;
+}
+
+#arrowup {
+	width: 100%;
+}

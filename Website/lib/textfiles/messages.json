@@ -1,0 +1,228 @@
+{
+    "allMessages": [
+        {
+            "sender": "Charlie",
+            "receiver": "Lee",
+            "message": "This is an automated notification. Charlie has offered to purchase Lee's request for 3 CONCEPT EYES - Mood Recipe 2 Matte Lip Color",
+            "automated": "Yes",
+            "time": "Tue 1/1/2019 10:21PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Charlie",
+            "message": "This is an automated notification. Lee has accepted Charlie's offer to purchase 3 CONCEPT EYES - Mood Recipe 2 Matte Lip Color",
+            "automated": "Yes",
+            "time": "Wed 2/1/2019 8:03PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Charlie",
+            "message": "Hi, thank you for accepting my request. You can get the product from YesStyle",
+            "automated": "No",
+            "time": "Wed 2/1/2019 8:31PM"
+        },
+        {
+            "sender": "Charlie",
+            "receiver": "Lee",
+            "message": "Hi, no worries! thank you for accepting my offer. What colour do you want?",
+            "automated": "No",
+            "time": "Thu 3/1/2019 7:09AM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Charlie",
+            "message": "Just a rose colour one thanks",
+            "automated": "No",
+            "time": "Fri 4/1/2019 4:45PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Charlie",
+            "message": "When do you arrive back to Australia?",
+            "automated": "No",
+            "time": "Fri 4/1/2019 5:12PM"
+        },
+        {
+            "sender": "Charlie",
+            "receiver": "Lee",
+            "message": " 25/5/19. When and where do you want to meet so i can deliver it to you?",
+            "automated": "No",
+            "time": "Fri 4/1/2019 5:13PM"
+        },
+        {
+            "sender": "Tom",
+            "receiver": "Lee",
+            "message": "Hi, not product request but just wanted to get some Japan travel recommendations",
+            "automated": "No",
+            "time": "Thu 7/2/2019 1:03PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Charlie",
+            "message": "Town Hall station, 26/5/19 11am? ",
+            "automated": "No",
+            "time": "Sat 5/1/2019 9:43PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Tom",
+            "message": "Yeah sure I'll send over my itinerary what's your email?",
+            "automated": "No",
+            "time": "Fri 8/2/2019 11:59AM"
+        },
+        {
+            "sender": "Charlie",
+            "receiver": "Lee",
+            "message": "Sounds good. I'll see you then!",
+            "automated": "No",
+            "time": "Fri 8/2/2019 1:08PM"
+        },
+        {
+            "sender": "Julia",
+            "receiver": "Lee",
+            "message": "Hi, I'm from Sydney and i travel to the US from 6/6/19 to 14/6/19. I'll be able to buy this for you! Is this ok? ",
+            "automated": "No",
+            "time": "Mon 13/3/2019 9:50PM"
+        },
+        {
+            "sender": "Henry",
+            "receiver": "Lee",
+            "message": "This is an automated message. Henry has offered to purchase Lee's request for 3 CONCEPT EYES - Mood Recipe 2 Matte Lip Color.",
+            "automated": "Yes",
+            "time": "Fri 15/3/2019 3:01PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Henry",
+            "message": "This is an automated message. Lee has accepted Henry's offer to purcase 3 CONCEPT EYES - Mood Recipe 2 Matte Lip Color.",
+            "automated": "Yes",
+            "time": "Sat 16/3/2019 2:43PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Henry",
+            "message": "Thanks for buying this for me. Have a nice day. I'll complete the request",
+            "automated": "No",
+            "time": "Tue 30/4/2019 5:53PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Henry",
+            "message": "This is an automated message. 3 CONCEPT EYES - Mood Recipe 2 Matte Lip Color has been completed. Thank you for using Globe Shoppers! Please leave a review on your experience.",
+            "automated": "Yes",
+            "time": "Tue 30/4/2019 5:54PM"
+        },
+        {
+            "sender": "Lee",
+            "receiver": "Julia",
+            "message": "Hi, thanks for your interest but i need the item before May :( Have a nice trip though! ",
+            "automated": "No",
+            "time": "Tue 14/3/2019 7:10PM"
+        },
+        {
+            "sender": "Julia",
+            "receiver": "Lee",
+            "message": "This is an automated message. Julia has offered to purchase Lee's request for Contrast Striped Drop Shoulder Rolled Sleeve Shirt ",
+            "automated": "Yes",
+            "time": "Fri 17/3/2019 9:01PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "receiver": "Sarah",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "automated": "Yes",
+            "time": "Fri 17/3/2019 10:01PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Amanda",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 12:20PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Nicole",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 12:20PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Lavanya",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 12:20PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Carol",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 12:20PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Emmet",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 12:20PM"
+        },
+        {
+            "sender": "Globeshoppers",
+            "message": "Hi, Welcome to Globeshoppers! Message us if you have any questions or issues",
+            "receiver": "Lee",
+            "automated": "Yes",
+            "time": "Wed 01/12/2018 12:20PM"
+        },
+        {
+            "sender": "Emmet",
+            "message": "This is an automated notification. Emmet has offered to purchase Lavanya's request for Eevee Tamagotchi",
+            "receiver": "Lavanya",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Emmet",
+            "message": "Hey I can get this for you",
+            "receiver": "Lavanya",
+            "automated": "No",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Emmet",
+            "message": "This is an automated notification. Emmet has offered to purchase Carol's request for Pachisi Game",
+            "receiver": "Carol",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Emmet",
+            "message": "I can bring this",
+            "receiver": "Carol",
+            "automated": "No",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Lavanya",
+            "message": "This is an automated notification. Lavanya has accepted Emmet's offer to purchase Eevee Tamagotchi",
+            "receiver": "Emmet",
+            "automated": "Yes",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Lavanya",
+            "message": " Okay when are you going?",
+            "receiver": "Emmet",
+            "automated": "No",
+            "time": "Wed 01/05/2019 02:30PM"
+        },
+        {
+            "sender": "Lee",
+            "message": "This is an automated notification. Lee has accepted Julia's offer to purchase Contrast Striped Drop Shoulder Rolled Sleeve Shirt",
+            "receiver": "Julia",
+            "automated": "Yes",
+            "time": "Thu 02/05/2019 05:06PM"
+        }
+    ]
+}

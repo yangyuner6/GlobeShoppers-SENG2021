@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div>
+	<br>
+	<div id = "trending-section">
+		<div class="header">
+			<h1>Trending</h1>
+		</div>
+
+		<div id="container">
+			{% for product in trending %}
+			<div id="content">
+				<div class="button">
+					<table id = {{product.get("_name")}} class = "productscat">
+						<td >
+							<tr>
+								<td><input type = "image" class="product-pics" src='{{product.get("_image")}}' onclick="window.location.href= '{{url_for('product',productName= product.get("_name"))}}';"></td>
+							</tr>
+							<tr>
+								<td> 
+								<h3 style="padding-top: 5px">{{product.get("_name")}} </h3>
+								</div>
+								<h4 style="color:#F76C6C;padding-top: 15px; padding-bottom: 15px">${{product.get("_audPrice")}} AUD</h4></td>
+							</tr>
+							<tr> <td></button>
+							<div onclick="window.location.href= '{{url_for('otherProfile',user= product.get('_customer'))}}';">
+							{% if trending_users[loop.index-1] != 0 %}
+							<img width = 25px height = 25px src = '{{trending_users[loop.index-1]}}'>
+                            {% else %}
+                            <i class="fas fa-user-circle fa-6x"></i>
+                            {% endif %}
+							<span class = username>{{product.get("_customer")}}</span></div></td> </tr>
+						</td>
+					</table>
+		        </div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div id="request-product">
+		<h2> Want to request a new product yourself? </h2>
+		<button class = "pure-button" id="addpro-button" onclick="openaddPForm()"> Add Product </button>
+	</div>
+
+	<div id="categories-style">
+		<div class="header">
+			<h1> Categories </h1>
+		</div>
+		<div id="categories-buttons">
+			<div class="pure-g">
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="elec-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Electronics')}}';">Electronics </button>
+					
+				</div>
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="games-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Games')}}';">Games </button>
+				</div>
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="makeup-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Makeup')}}';">Makeup </button>
+				</div>
+
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="food-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Food')}}';">Food </button>
+				</div>
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="clothes-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Clothes')}}';">Clothes </button>
+				</div>
+				<div class="pure-u-1-6">	
+					<button class="cat-buttons" id="access-catbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Accessories')}}';">Accessories </button>
+				</div>
+    		</div>
+		</div>
+	</div>
+
+
+	<div id = "countries-sort">
+		<div class="header">
+			<h1> Popular Countries </h1>
+		</div>
+		<div id="countries-buttons">
+			<div class="pure-g">
+				<div class="pure-u-1-4">
+					<button class="count-buttons" id="us-countbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'United States')}}';"> USA </button>
+				</div>
+				<div class="pure-u-1-4">
+					<button class="count-buttons" id="brazil-countbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Brazil')}}';"> Brazil </button>
+				</div>
+				<div class="pure-u-1-4">
+					<button class="count-buttons" id="japan-countbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'Japan')}}';"> Japan </button>
+				</div>
+				<div class="pure-u-1-4">
+					<button class="count-buttons" id="france-countbutton" type="button" onclick="window.location.href= '{{url_for('categories',cat= 'France')}}';"> France </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+	<div class = "popup" id = "addpro-form">
+	<h2 style="text-align:center"> Add Product </h2>
+	<form class="pure-form pure-form-aligned" method="post">
+	    <fieldset>
+	        <div class="pure-control-group">
+	            <label>Product Name</label>
+	            <input id="name" style="color:black" type="text" name="name" placeholder="Enter product name">
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label>Product Image</label>
+	            <input id ="addpic" type = "file" name = "image" accept = "image/*">
+	        </div>
+
+
+	        <div class="pure-control-group">
+	            <label>Country</label>
+				<select name = "country" class="selectmain" id="countrypro">
+	  					<option selected value = ""> Select</option>
+						{% for country in countries %}
+			                <option value = "{{country}}" >{{country}}</option>
+			            {% endfor %}
+				</select>
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label>Category</label>
+				<select name = "category" id="catpro" class="selectmain">
+	  					<option selected value = ""> Select</option>
+						<option value="Electronics">Electronics</option>
+						<option value="Games">Games</option>
+						<option value="Makeup">Makeup</option>
+						<option value="Food">Food</option>
+						<option value="Clothes">Clothes</option>
+						<option value="Accessories">Accessories</option>
+				</select>
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label>Price</label>
+				<input type="text" style="color:black" name="audPrice" id="prices" class ="aptext" placeholder=" AUD $">
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label>Quantity</label>
+				<select name = "quantity" id="proquan" class="selectmain">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+	        </div>
+
+	        <div class="pure-controls">
+
+	            <button type="submit" onclick="return confirmationFunction3()" class="pure-button pure-button-primary" >Submit</button>
+	            <button type="button" class="pure-button pure-button-primary" onclick = "closeaddPForm()">Cancel</button>
+
+	        </div>
+	    </fieldset>
+		</form>
+		<a href="#" onclick="showtermsandcond()" id="link-terms"> Want to know if your product is acceptable legally?</a>
+	</div>
+
+	<div class="popup2" id="terms-and-c">
+		<img src="../static/img/terms-and-conditions.png" id = "tandcmain">
+		<a href="#" onclick="hidetermsandcond()" id="link-term2"> Go back now</a>
+		<a href="#" onclick="window.location.href='{{url_for('termsandconditions')}}';" id="link-term3"> Read more about it</a>
+	</div>
+	<div id="gotostart">
+			<button type="button" id="jumpbutton" onclick="smoothScroll(document.getElementById('starting-area'))">
+				<img src="../static/img/arrow.png" id="arrowup"> </button>
+			</button>
+
+	</div>
+</div>
+{% endblock %}

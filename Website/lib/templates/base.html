@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+<!-- SENG 2021 Project -->
+<!-- Team name : TeleTubbies -->
+
+<html>
+
+<head>
+<title> GlobeShoppers </title>
+
+
+<script src="js/base.js"></script>
+
+<link rel="stylesheet" href="/static/css/pure-min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inbox.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/howitworks.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+</head>
+
+
+<body> 
+	<div id="base-page">
+		<button onclick="window.location.href='{{url_for('mainpage')}}'" id="heading-button"><img src="../static/img/webpage-name.png" id = "webname"></button>
+
+		<!-- The top part of the base file-->
+		<div class="pure-menu pure-menu-horizontal">
+    		<a class="pure-menu-heading pure-menu-link" href="{{url_for('mainpage')}}"> <img src="../static/img/logo-new.png" id = "logo-pic"> </a>
+    		<ul class="pure-menu-list">
+       
+        		<li class="pure-menu-item"><a href="#" class="pure-menu-link"> <a>
+        			<form class="search" action="{{url_for('search')}}" method = "POST">
+  						<input id="searchbox" type="text" name="search" placeholder="Search..">
+					</form> 
+        		</a></li>
+        		<li class="pure-menu-item" style="float:right">
+        		<a href="{{url_for('profile')}}" class="pure-menu-link"> 
+        			<img src="../static/img/icon.png" id="profile-picture">
+        		</a></li>
+        		<li class="pure-menu-item" style="float:right"><a href="{{url_for('inbox')}}" class="pure-menu-link">
+        		<img src="../static/img/mail-icon.png" id="mail-picture">
+        		</a></li>
+    		</ul>
+		</div>
+	</div>
+	<div id="starting-area">
+	</div>
+	<div id = "Block-body">
+		{% block body %}{% endblock %}
+	</div>
+	 
+
+	<!--div id="gotostart">
+			<button type="button" id="jumpbutton" onclick="smoothScroll(document.getElementById('starting-area'))">
+				<img src="../static/img/arrow.png" id="arrowup"> </button>
+			</button>
+	</div-->
+
+	<div id="outro-part">
+
+		<div class = "pure-g">
+			<div class="pure-u-1-3">
+				<img src="../static/img/webpage-name.png" id = "outroname">
+			</div>
+			<div class="pure-u-1-3">
+				<div id = "outro-links">
+					<button class="outro-buttons" onclick="window.location.href='{{url_for('aboutus')}}'" name = about> About Us </button>
+					<button class="outro-buttons" onclick="window.location.href='{{url_for('howitworks')}}';" name = how> How GlobeShoppers works </button>
+					<button class="outro-buttons" onclick="window.location.href='{{url_for('termsandconditions')}}';" name = terms> Terms of Use </button>
+					<button class="outro-buttons"> Privacy Policy </button>
+				
+				</div>
+			</div>
+			<div class="pure-u-1-3">
+				<h3> FOR INQUIRES: </h3>
+				<p> support@globeshoppers.com </p>
+				<p> +61 123 456 789</p>
+				<h4> For partnership: </h4>
+				<p> partners@globeshoppers.com </p>
+			</div>
+		</div>
+		<hr>
+		<div class = "pure-g">
+			<div class="pure-u-1-2" style="text-align:right;">
+				<img src="../static/img/comingapple.png" class = "comingapp">
+			</div>
+			<div class="pure-u-1-2" style="text-align:left;">
+				
+				<img src="../static/img/cominggoogle.png" class = "comingapp">
+			</div>
+		</div>
+	</div>
+
+</body>
+
+
+</html>
+
+
+
+

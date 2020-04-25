@@ -1,0 +1,28 @@
+/* ABOUT US PAGE */
+
+#about-welcome {
+	width: 100%;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	color: #A8D0E6;
+}
+
+#aboutpeople {
+	width: 60%;
+}
+
+
+#foundersinfo {
+	margin-top: 20px;
+}
+
+.founderimages {
+	width:50%;
+}
+
+/* TERMS AND CONDITION PAGE*/
+
+#tandc {
+	width: 100%;
+}

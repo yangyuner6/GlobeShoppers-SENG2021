@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div id="containers">
+
+    <div id="side-inbox">
+        <div class="pure-menu custom-restricted-width">
+            <span class="pure-menu-heading">Messages</span>
+            <form method = "POST" id="form1">
+                {% for i in range(chats|length)%}
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item"><button id="people-message"name="inbox-details" value={{i}} type="submit" class="pure-button">{{chats[i]}}</button></li>
+
+                    </ul>
+                {%endfor%}
+            </form>
+        </div>
+    </div>
+
+
+    <div class="message-chain" id={{index}}>
+        <h1> Messages with {{chats[index]}}  </h1>
+        <br>
+        <br>
+
+        <form method="POST">
+            <div id="request-chain">
+                <div id = "request-box">
+                    {%for j in range(allRequests[index]|length)%}
+                {%if allRequests[index][j]["_status"] == "Pending" and currentUser == allRequests[index][j]["_customer"]%}
+                    <h3> Offer for {{allRequests[index][j]["_name"]}} </h3>
+                    <h5> Current status: {{allRequests[index][j]["_status"]}} </h5>
+
+                    <div class="inbox-butttons">
+                        <input class="request-button" type="submit" name="Accepted {{index}},{{j}}" style = "text-align:center;" value="Accept"> <!-- change the look of these -->
+                        <input class="request-button" type="submit" name="Declined {{index}},{{j}}" style = "text-align:center;"value="Decline">
+                    </div>
+                {%elif allRequests[index][j]["_status"] == "Accepted"%}
+                    {%if currentUser == allRequests[index][j]["_customer"]%}
+                        <h3 style=" text-align: center;"> Offer for {{allRequests[index][j]["_name"]}} </h3>
+                        <h5 style = "text-align:center;"> Current status: {{allRequests[index][j]["_status"]}} </h5>
+                    {%else%}
+                        <h3 style=" text-align: center;"> Product Request for {{allRequests[index][j]["_name"]}}</h3>
+                         <h5 style = "text-align:center;"> Current status: {{allRequests[index][j]["_status"]}} </h5>
+                    {%endif%}
+                    <div class="inbox-butttons">
+                        <input class="request-button" type="submit" name="Completed {{index}},{{j}}"style = "text-align:center;" value="Complete">
+                    </div>
+                {%endif%}
+
+            {%endfor%}
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div id="replybox">
+                <h3> Reply to {{chats[index]}}</h3>
+                <br>
+                <textarea id="textareabox" rows="5" cols="70%" name = "textarea"> </textarea>
+                <br>
+                <br>
+                <button class="request-button" name = "{{chats[index]}}" value = "Send to {{chats[index]}}"> Reply </button>
+            </div>
+            <hr>
+        </form>
+        <br>
+
+        <div id="messages-people">
+            <table>
+                {%for threads in inbox[index]%}
+                    {%if threads["automated"] == "Yes"%}
+                        <tr>
+                            <td class="mess-image">
+                               
+                            </td>
+                            <td>
+                                <div class="messageboxa automated">
+                                    <h5> {{threads["message"]}} </h5>
+                                    <h6> {{threads["time"]}} </h6>
+                                </div>
+                            </td>
+                            <td class="mess-image">
+                                
+                            </td>
+                        </tr>
+                    {%elif threads["sender"] == currentUser %} 
+                        <tr>
+                            <td class="mess-image">
+                                 
+                            </td>
+                            <td>
+                                <div class="messageboxs sent">
+                                    <p> {{threads["message"]}}</p>
+                                    <h6> {{threads["time"]}} </h6>
+                                </div>
+                            </td>
+                            <td class="mess-image">
+                                {% if user["image"] %}
+                                <img src="{{user['image']}}" class="user-picture">
+                                {% else %}
+                                <img src="../static/img/icon.png" class="user-picture">
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {%else%}
+                        <tr>
+                            <td class="mess-image">
+                                {% if user_images == 0 %}
+                                <img src="../static/img/icon.png" class="user-picture">
+                                {% else %}
+                                <img src="{{user_images}}" class="user-picture">
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="messageboxr receive">
+                                    <p> {{threads["message"]}}</p>
+                                    <h6> {{threads["time"]}} </h6>
+                                </div>
+                            </td>
+                            <td class="mess-image">
+                                
+                            </td>
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+            </table>
+        </div>
+        
+
+    </div>
+
+    <div id="gotostart">
+        <button type="button" id="jumpbutton2" onclick="smoothScroll(document.getElementById('starting-area'))">
+            <img src="../static/img/arrow.png" id="arrowup"> </button>
+        </button>
+    </div>
+
+</div>
+
+{% endblock %}

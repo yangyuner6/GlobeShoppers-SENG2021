@@ -1,0 +1,255 @@
+body {
+	background-color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#webname {
+	width: 30%;
+	margin-left: 35%;
+}
+
+#greeting-section {
+	margin-left: 5px;
+	text-align: center;
+}
+
+#welcome-tagline {
+	background-color: #F76C6C;
+	color: white;
+	padding-top: 0.5px;
+	padding-bottom: 0.5px;
+	text-align: center;
+	display: block;
+
+}
+
+#welcometagbutton {
+	float: right;
+	border: none;
+	color: white;
+	background-color: #F76C6C;
+}
+
+#websitelook {
+	width: 100%;
+}
+
+#Intro-section {
+	padding-top: 80px;
+}
+#startbutton {
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 25px;
+	padding-right: 25px;
+	color: white;
+	background-color: #F76C6C;
+}
+
+.productwelcome{
+	width: 70%;
+}
+
+.welcomeuser {
+	width: 50%;
+}
+
+.money-info{
+	margin-top: -10px;
+	background-color: white;
+	color: black;
+	border-radius: 40px;
+}
+
+#whoarewe {
+    padding-top: 15px; 
+    padding-bottom: 15px;
+    width: 100%;
+    background-color: #a8d0e6;
+    color: white;
+    text-align: center;
+}
+
+
+#hww1{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: #F76C6C;
+    border: none;
+    color: white;
+}
+
+
+#hww2{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    color: #F76C6C;
+}
+
+
+
+#switch-hww{
+    text-align: center;
+}
+
+
+
+.steps {
+    text-align:center;
+  height: 200px;
+  width: 80%;
+  margin-left: 10%;
+  box-shadow: 5px 5px #e0e1e2;
+  background-color: #edeaea;
+}
+.img-container {
+  width: 40%;
+  height: 100%;
+  background-color: lightgray;
+  float: right;
+  background: url(http://fillmurray.com/1000/1000) no-repeat center center / cover;
+  -webkit-shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+  shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#customer-1 {
+    background: url("../img/customer-1.jpg") no-repeat center center / cover;
+}
+
+#customer-2 {
+    background: url("../img/customer-2.jpg") no-repeat center center / cover;
+}
+
+#customer-3 {
+    background: url("../img/customer-3.jpg") no-repeat center center / cover;
+}
+
+#customer-4 {
+     background: url("../img/customer-4.jpg") no-repeat center center / cover;
+}
+
+#traveller-1 {
+    background: url("../img/traveller-1.jpg") no-repeat center center / cover;
+}
+
+#traveller-2 {
+    background: url("../img/traveller-2.jpg") no-repeat center center / cover;
+}
+
+#traveller-3 {
+    background: url("../img/traveller-3.jpg") no-repeat center center / cover;
+}
+
+#traveller-4 {
+    background: url("../img/traveller-4.jpg") no-repeat center center / cover;
+}
+
+#customer-pov {
+    display: block;
+}
+
+#traveller-pov {
+    display: none;
+}
+
+.text-step {
+    margin-top: 20px;
+    padding-top: 25px;
+}
+
+
+
+#outro-part {
+    float: left;
+    bottom: 0;
+    width: 100%;
+    background-color: white; 
+    color: #a7a8aa;
+    height: 250px;
+    text-align: center;
+    border-top-style: solid;
+    border-color: #7f8082;
+    padding-top: 10px;
+    position: relative;
+}
+
+#outroname {
+    width: 60%;
+}
+
+#outro-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+}
+
+.outro-buttons {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 70%;
+    background-color: white;
+    border: none;
+}
+
+.comingapp {
+    width: 20%;
+}
+
+.welcomeproductsview {
+    width: 80%;
+    box-shadow: 5px 5px #e0e1e2;
+    background-color: #edeaea;
+    margin-left: 20px;
+}
+
+#menubar {
+    height: 50px;
+    width: 100%;
+    text-align:right;
+    margin-bottom: 10px;
+}
+
+#buttonlogin {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-right: 20px;
+    border: none;
+    background-color: #F76C6C;
+    color: white;
+
+}
+
+#howlink {
+    color: black;
+}
+
+#jumpbutton2 {
+    background-color: #e5e6e8; 
+    color: #a7a8aa; 
+    border: none;
+    width: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+    position: fixed;
+    right: 0;
+}
+
+#jumpbutton2:hover {
+    background-color: #a7a8aa;
+}
+
+#arrowup2 {
+    width: 100%;
+}

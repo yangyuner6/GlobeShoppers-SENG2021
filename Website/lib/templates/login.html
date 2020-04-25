@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<img src="../static/img/webpage-name.png" id = "webname" >
+<form class="pure-form pure-form-aligned" method = "POST">
+    <fieldset>
+    	<h2 class = "active"> Login </h2>
+    	<h2 class = "inactive"><a class = "underlineHover" href="{{url_for('register')}}"> Sign Up </a></h2>
+    	<i class="fas fa-user-circle fa-7x"></i>
+    	<a class = "error">{{message}}</a>
+        <div class="pure-control-group">
+            <input name="email" type="text" placeholder="Email" class = "pure-input-rounded">
+        </div>
+        <div class="pure-control-group">
+            <input name="password" type="password" placeholder="Password" class = "pure-input-rounded">
+        </div>
+         <button class="pure-button">
+           Login
+        </button>
+        <div class = "formFooter">
+        	<a class = "aFont underlineHover" href = "{{url_for('aboutus')}}"> What is Globeshoppers? Find out more </a>
+        </div>
+    </fieldset>
+</form>
+<div id="redirectionmessage">
+  <h5> {{remessa}} </h5>
+</div>
+</html>

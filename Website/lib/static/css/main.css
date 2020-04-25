@@ -1,0 +1,311 @@
+/* MAIN PAGE HTML */
+
+
+
+.header {
+	margin-top: 20px;
+	background-color: white;
+	color: black;
+	border-bottom-style: inset;
+	text-align: center;
+}
+
+#container {
+	background-color: #666;
+	/*height: auto;*/
+	margin: 10px 4% 20px 4%;
+}
+#content {
+	margin-left: 5%;
+	margin-top: 1%;
+	width: 25%;
+	height: 450px;
+	float: left;
+	text-align: center;
+	border: none;
+	background: #FFFFFF;
+	border-radius: 25px;
+}
+#content .button {
+	width: 100%;
+	height: 450px;
+	background: #FFFFFF;
+	border-radius: 25px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-pics {
+	width: 100%;
+	height: 280px;
+}
+h1, h2, h3, h4 {
+	margin: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
+#request-product {
+	width: 100%;
+	float: left;
+	margin-top: 30px;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #A8D0E6;
+	color: white;
+}
+
+#addpro-button {
+	margin-top: 20px;
+	background-color: white;
+	color: #A8D0E6;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#categories-style {
+	float: left;
+	width: 100%;
+}
+
+#categories-buttons {
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.cat-buttons {
+	min-width: 150px;
+	min-height: 150px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: black;
+	color: white;
+	color: transparent;
+	border: none;
+	padding: 30px 30px 30px 30px;
+	border-radius: 50%;
+}
+ 
+
+#elec-catbutton {
+	background: url("../img/electronics-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#games-catbutton {
+	background: url("../img/games-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#makeup-catbutton {
+	background: url("../img/makeup-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#food-catbutton {
+	background: url("../img/food-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#clothes-catbutton {
+	background: url("../img/clothes-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#access-catbutton {
+	background: url("../img/accesories-cat.png") no-repeat;
+	background-size: 100%; 
+}
+
+#elec-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+#games-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+#makeup-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+#food-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+#clothes-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+#access-catbutton:hover {
+	background:none;
+	background-color: #F76C6C;
+	color: white;
+}
+
+
+#countries-sort {
+	float: left;
+	width: 100%;
+}
+
+
+#countries-buttons {
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.count-buttons {
+	min-width: 250px;
+	min-height: 250px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: black;
+	color: white;
+	color: transparent;
+	border: none;
+	padding: 30px 30px 30px 30px;
+	border-radius: 50%;
+}
+
+
+#us-countbutton {
+	background: url("../img/usa-icon.png") no-repeat;
+	background-size: 100%; 
+}
+
+
+#brazil-countbutton {
+	background: url("../img/brazil-icon.png") no-repeat;
+	background-size: 100%; 
+}
+
+#japan-countbutton {
+	background: url("../img/japan-icon.png") no-repeat;
+	background-size: 100%; 
+}
+
+#france-countbutton {
+	background: url("../img/france-icon.png") no-repeat;
+	background-size: 100%; 
+}
+
+#us-countbutton:hover {
+	background: url("../img/usa-icon-blur.png") no-repeat;
+	background-size: 100%; 
+	color: white;
+	font-size: 2em;
+}
+
+
+#brazil-countbutton:hover {
+	background: url("../img/brazil-icon-blur.png") no-repeat;
+	background-size: 100%;
+	color: white; 
+	font-size: 2em;
+}
+
+#japan-countbutton:hover {
+	background: url("../img/japan-icon-blur.png") no-repeat;
+	background-size: 100%; 
+	color: white;
+	font-size: 2em;
+}
+
+#france-countbutton:hover {
+	background: url("../img/france-icon-blur.png") no-repeat;
+	background-size: 100%; 
+	color: white;
+	font-size: 2em;
+}
+
+
+
+
+#link-terms{
+	color: white;
+	float: left;
+	margin-left: 50px;
+}
+
+#link-term2{
+	color: white;
+	float: left;
+	margin-left: 100px;
+}
+
+#link-term3{
+	color: white;
+	float: left;
+	margin-left: 80px;
+}
+
+
+
+.popup {
+    position: fixed;
+    display: none;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 475px;
+    height: 380px;
+    color: rgb(220, 230, 237);
+    transform: translate(-50%, -50%);
+}
+
+#addpro-form {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	top: 60%;
+	background-color: rgba(0,0,0,0.8);
+	padding-top: 20px;
+}
+
+
+.popup2 {
+    position: fixed;
+    display: none;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 440px;
+    color: rgb(220, 230, 237);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#terms-and-c {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	top: 60%;
+	background-color: rgba(0,0,0,0.8);
+	padding-top: 5px;
+}
+
+#tandcmain {
+	width: 90%;
+
+}
+
+
+.selectmain {
+	color: #252626;
+}
+
+.pure-button-primary {
+	background-color: white;
+	color: #A8D0E6;
+}
+.username {
+        vertical-align: 8px !important;
+}
+

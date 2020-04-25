@@ -1,0 +1,477 @@
+{% extends 'base.html' %}
+{% block body %}
+<head> 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='css/profile.css') }}">
+
+</head> 
+<body>
+{% if tripError == 2 %}
+<div align="center">
+     <marquee bgcolor="#F8E9A1" height:="" width="100%">
+     <span style="font-size: 20px;color: #F76C6C">
+     Name is already taken, profile not edited</span></marquee>
+</div>
+{% elif tripError == 3 %}
+<div align="center">
+     <marquee bgcolor="#F8E9A1" height:="" width="100%">
+     <span style="font-size: 20px;color: #F76C6C">
+     Email is already taken, profile not edited</span></marquee>
+</div>
+{% endif %}
+    <form method = "POST">
+    <div class = "popup1" id = "myForm"> 
+        <div class = "pure-form pure-form-aligned form-popup1">
+            <fieldset>
+                    <h2 class="brand-title"></i> Edit Profile</h2>
+                    <div class="pure-control-group margin">
+                        <label for="name">Username</label>
+                        <input name="name" type="text" placeholder="Lee">
+                    </div>
+                    <div class="pure-control-group margin">
+                        <label for="email">Email</label>
+                        <input name="email" type="text" placeholder="lee@gmail.com">
+                    </div>
+                    <div class="pure-control-group margin">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" placeholder="Password">
+                    </div>
+                    <div class="pure-control-group margin">
+                        <label>Profile Pic</label>
+                        <input id ="addpic" type = "file" name = "browse" accept = "image/*">
+                    </div>
+                    <div class="pure-control-group margin">
+                        <label for="city">City</label>
+                        <input name="city" type="text" placeholder="Sydney">
+                    </div>
+                    <div class="pure-control-group margin">
+                        <label for="bio">About Me</label>
+                        <input name="bio" type="text" placeholder="Hi, I am ...">
+                    </div>
+                    <div class = edit>
+                        <button type="submit" class=" pure-button pure-button1 pure-button2" name = editButton><i class="fas fa-user-edit"></i></button>
+                        <button type="button" class="pure-button pure-button1 pure-button2" onclick="closeForm()"><i class="fas fa-times"></i></button>
+                    </div>
+                </fieldset>
+        </div>
+    </div>
+    <div class = "popup1" id = "myForm2"> 
+        <div method = "POST" class = "pure-form pure-form-aligned form-popup1">
+            <fieldset>
+                <h2 class="brand-title">Trip Details</h2>
+                <div class="pure-control-group">
+                    <label for="name">Country</label>
+                    <select id = country class = select name = country>
+                        <option value = "">Select</option>
+                        {% for country in countries %}
+                            <option value = "{{country}}" >{{country}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="pure-control-group">
+                    <label for="start">Arrival</label>
+                    <input id = start name="startdate" type="date">
+                </div>
+                <div class="pure-control-group">
+                    <label for="end">Departure</label>
+                    <input id = end name="enddate" type="date">
+                </div>
+                <div class = edit>
+                    <button type="submit" class="pure-button pure-button1 pure-button2" name = tripButton onclick = "return check()"><i class="fas fa-paper-plane"></i></button>
+                    <button type="button" class="pure-button pure-button1 pure-button2" onclick="closeForm2()"><i class="fas fa-times"></i></button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+        <div class="header">
+            <div>
+                <button class="pure-button-disabled">
+                    {% if "review" not in user or user["review"]|length == 0%}
+                    <b>No Ratings</b>
+                    {% else %}
+                    <div> Average Rating </div>
+                        {% if "0.5" == user["aveRating"] %}
+                                        <span class="fa fa-star-half-alt"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "1" == user["aveRating"] or "1.0" == user["aveRating"] %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "1.5" == user["aveRating"] %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-half-alt"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "2" == user["aveRating"] or "2.0" == user["aveRating"]%}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "2.5" == user["aveRating"]  %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-half-alt"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "3" == user["aveRating"] or "3.0" == user["aveRating"] %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "3.5" == user["aveRating"] %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-half-alt"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "4" == user["aveRating"] or "4.0" == user["aveRating"]%}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="far fa-star"></span>
+                                    {% elif "4.5" == user["aveRating"] %}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star-half-alt"></span>
+                                    {% elif "5" == user["aveRating"] or "5.0" == user["aveRating"]%}
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    {% endif %}
+                    {% endif %}
+                </button>
+            </div>
+            {% if user["image"] %}
+            <img width = 120px height = 120px src = '{{user["image"]}}'>
+            {% else %}
+            <i class="fas fa-user-circle fa-6x"></i>
+            {% endif %}
+            <h2 class="brand-title">{{user["username"]}}</h1>
+            <div class = city><i>{{user["city"]}}</i></div>
+            {% if bio == 1%}
+                <h2 class="bio brand-tagline"><i>{{user["about"]}} </i></h2>
+            {% endif %}
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class=" pure-button pure-button1" onclick = "openForm()" type = button>
+                            <i class="fas fa-user-edit"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type = button class=" pure-button pure-button1"  onclick = "openForm2()">
+                            <i class="fas fa-plane-departure"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type = submit class="pure-button pure-button1" name = "logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+    <div class="content pure-u-1">
+        <div>
+            <div class="posts">
+                <h1 class="content-subhead">Activity</h1>
+                {% if not requestResult and not offerResult%}
+                    No Activity
+                {% endif %}
+                <section class="post">
+                    <div class="1-content">
+                        <div class="pricing-tables pure-g">
+                            {% for r in requestResult %}
+                            <div class="pure-u-1-3 pure-u-md-1-4">
+                                <div class="pricing-table pricing-table-free">
+                                    <div>
+                                        <img class = "img" src="{{r['_image']}}" alt = product onclick="window.location.href= '{{url_for('product',productName= r['_name'])}}';">
+                                    </div>
+                                    <div class = status>
+                                        <div>
+                                        {% if r["_traveller"] == 0 %}
+                                            Request Open
+                                            </div>
+                                            <form method = "post">
+                                            <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure?')" name = '{{r['_name']}}'> 
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            </form>
+                                        {% else %}
+                                            {% if "Pending" in r["_status"] %}
+                                                Request Pending
+                                                <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_traveller'])}}';">
+                                                {% if travellers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{travellers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_traveller"]}}</span>
+                                                </div>
+                                            </div>
+                                            <form method = "post">
+                                                <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure?')" name = '{{r['_name']}}'> 
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                            {% elif "Accepted" in r["_status"] %}
+                                            Request Accepted
+                                            <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_traveller'])}}';">
+                                                    {% if travellers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{travellers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_traveller"]}}</span>
+                                                </div>
+                                            </div>
+                                        <form method = "post">
+                                        <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure? You will receive a 0 rating')" name = '{{r['_name']}}'> 
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        </form>
+                                            {% else %}
+                                                Request Completed
+                                                <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_traveller'])}}';">
+                                                    {% if travellers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{travellers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_traveller"]}}</span>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% for r in offerResult %}
+                            <div class="pure-u-1-3 pure-u-md-1-4">
+                                <div class="pricing-table pricing-table-free">
+                                    <div>
+                                        <img class = "img" src="{{r['_image']}}" alt = product onclick="window.location.href= '{{url_for('product',productName= r['_name'])}}';">
+                                    </div>
+                                    <div class = status>
+                                        <div>
+                                        {% if r["_traveller"] == 0 %}
+                                            Offer Open
+                                            </div>
+                                            <form method = "post">
+                                            <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure?')" name = '{{r['_name']}}'> 
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            </form>
+                                        {% else %}
+                                            {% if "Pending" in r["_status"] %}
+                                                Offer Pending
+                                                <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_customer'])}}';">
+                                                {% if customers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{customers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_customer"]}}</span>
+                                                </div>
+                                            </div>
+                                            <form method = "post">
+                                                <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure?')" name = '{{r['_name']}}'> 
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                            {% elif "Accepted" in r["_status"] %}
+                                            Offer Accepted
+                                            <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_customer'])}}';">
+                                                    {% if customers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{customers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_customer"]}}</span>
+                                                </div>
+                                            </div>
+                                        <form method = "post">
+                                        <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure? You will receive a 0 rating')" name = '{{r['_name']}}'> 
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        </form>
+                                            {% else %}
+                                                Offer Completed
+                                                <div onclick="window.location.href= '{{url_for('otherProfile',user= r['_customer'])}}';">
+                                                    {% if customers[loop.index-1] != 0 %}
+                                                <img width = 30px height = 30px src = '{{customers[loop.index-1]}}'>
+                                                {% else %}
+                                                <i class="fas fa-user-circle fa-6x"></i>
+                                                {% endif %}
+                                                <span class = username>{{r["_customer"]}}</span>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </section>
+                <h1 class="content-subhead">Trips</h1>
+                <section class="post">
+                {% if "trip" not in user%}
+                    No Trips
+                {% elif user["trip"]|length == 0 %}
+                    No Trips
+                {% endif %}
+                    <div class="2-content">
+                        <div class="pricing-tables pure-g">
+                            {% for r in user["trip"] %}
+                            <div class="pure-u-1-3 pure-u-md-1-4">
+                                <div class="pricing-table pricing-table-free">
+                                    <div>   
+                                        <div class = tripDate>{{r["date"]}}</div>
+                                        <div>
+                                            <i class="fas fa-plane fa-7x"></i> 
+                                        </div>
+                                        <h2 class = "brand-tagline place">{{r["country"]}}</h2>
+                                    </div>
+                                    <form method = "post">
+                                        <button class = "pure-button pure-button1 del" onclick = "return confirm('Are you sure?')" name = "{{r['date']}}-{{r['country']}}"> 
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                <h1 class="content-subhead">Reviews</h1>
+                {% if "review" not in user%}
+                    No Reviews
+                {% elif user["review"]|length == 0 %}
+                    No Reviews
+                {% endif %}
+                <section class="post">
+                    <div class="3-content">
+                        <div class="pricing-tables pure-g">
+                        {% for r in user["review"] %}
+                            <div class="pure-u-1-2 pure-u-md-1-2">
+                                <div class="pricing-table pricing-table-free">
+                                    <div onclick="window.location.href= '{{url_for('otherProfile',user= r['reviewer'])}}';">
+                                        {% if reviews[loop.index-1] != 0 %}
+                                    <img width = 120px height = 120px src = '{{reviews[loop.index-1]}}'>
+                                    {% else %}
+                                    <i class="fas fa-user-circle fa-8x"></i>
+                                    {% endif %}
+                                    <div>{{r["reviewer"]}}</div>
+                                    </div>
+                                    {% if r["rating"] == 0 %}
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                    {% elif "1" == r["rating"] %}
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                    {% elif "2" == r["rating"] %}
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                    {% elif "3" == r["rating"] %}
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="far fa-star not"></span>
+                                        <span class="far fa-star not"></span>
+                                    {% elif "4" == r["rating"] %}
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="far fa-star not"></span>
+                                    {% elif "5" == r["rating"] %}
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    {% endif %}
+                                    <div class = review>
+                                        <i>{{r["comment"]}}</i>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </form>
+</body>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function openForm2() {
+  document.getElementById("myForm2").style.display = "block";
+}
+
+function confirmation() {
+  if (confirm("Are you sure you want to delete?")) {
+      
+  }
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+function closeForm2() {
+  document.getElementById("myForm2").style.display = "none";
+}
+
+function closeForm3() {
+  document.getElementById("myForm3").style.display = "none";
+}
+function check() {
+    if (document.getElementById("start").value === "") {
+        alert('No start date');
+        return false;
+    } else if (document.getElementById("end").value === "") {
+        alert('No end date');
+        return false;
+    } else {
+        var e = document.getElementById("country");
+        var strUser = e.options[e.selectedIndex].value;
+        if (strUser === "") {
+            alert('No country selected');
+            return false;
+        }
+        return true;
+    }
+    return true;
+}
+</script>
+{% endblock %}

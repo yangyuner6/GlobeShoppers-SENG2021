@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block body %}
+
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/searchResults.css') }}">
+</head>
+<body>
+	<div class = "header">
+		<h1>{{(matchResults|length)|int + (ebayResultsName|length)|int}} Results for '{{text}}' </h1>
+	</div>
+
+	<div id="container">
+
+
+		<div id="nav">
+			<div id="cat">
+				<h1 class="content-subhead">Categories</h1><br>
+                <section >
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Electronics')}}';">
+				<label>Electronics</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Games')}}';">
+				<label>Games</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Makeup')}}';">
+				<label>Makeup</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Food')}}';">
+				<label>Food</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Clothes')}}';">
+				<label>Clothes</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Accessories')}}';">
+				<label>Accessories</label></h4><br>
+			</section>
+			</div>
+			<div id="countries">
+				<h1 class="content-subhead">Popular Countries</h1><br>
+                <section >
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'United States')}}';">
+				<label>USA</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Brazil')}}';">
+				<label>Brazil</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'Japan')}}';">
+				<label>Japan</label></h4><br>
+				<h4><input type="radio" name="cat" onclick="window.location.href= '{{url_for('categories',cat= 'France')}}';">
+				<label>France</label></h4><br>
+
+			</section>
+			</div>
+
+			<div id="sorting">
+				<h1 class="content-subhead">Sorted by</h1><br>
+				<h4><input type="radio" name="select" onclick="window.location.href= '{{url_for('categories',cat= 'Price High to Low')}}';">
+				<label>Price high to low</label></h4><br>
+				<h4><input type="radio" name="select" onclick="window.location.href= '{{url_for('categories',cat= 'Price Low to High')}}';">
+				<label>Price low to high</label></h4><br>
+
+
+			</div>
+			<div id="clear-search">
+			<button class = "pure-button searchesclear" id="clear-search" onclick="window.location.href= '{{url_for('categories',cat= 'clear')}}';"> Clear Searches </button>
+			</div>
+		</div>
+
+		<div id="main">
+
+			{% for product in matchResults %}
+			<div id="content">
+				<div class="button">
+					<table id = {{product.get("_name")}} class = "productscat">
+						<td >
+							<tr>
+								<td><input type = image class="product-pics" src='{{product.get("_image")}}' onclick="window.location.href= '{{url_for('product',productName= product.get("_name"))}}';"></td>
+							</tr>
+							<tr>
+								<td> <h2>{{product.get("_name")}} </h2>
+								 <h2 style="color:#F76C6C;">${{product.get("_audPrice")}} AUD</h2></td>
+							</tr>
+							<tr> <td><h3 onclick="window.location.href= '{{url_for('otherProfile',user= product.get('_customer'))}}';">
+							{% if items[loop.index-1] != 0 %}
+							<img width = 25px height = 25px src = '{{items[loop.index-1]}}'>
+                            {% else %}
+                            <i class="fas fa-user-circle fa-6x"></i>
+                            {% endif %}
+							<span class = username>{{product.get("_customer")}}</span></h3></td> </tr>
+							<tr> <td><h3>From {{product.get("_country")}}</h3></td> </tr>
+						</td>
+					</table>
+		        </div>
+			</div>
+			{% endfor %}
+			
+			<div id="request-product">
+				<h2> Here are some more products from Ebay </h2>
+			</div>
+			{% for i in range(ebayResultsName|length) %}
+			<div id="content">
+				<button class="button" onclick="window.location.href= '{{url_for('productEbay', productName= ebayResultsName[i])}}';">
+					<table id = {{ebayResultsName[i]}}>
+						<td>
+							<tr>
+								<td><img class="product-pics" src='{{ebayResultsImage[i]}}'></td>
+							</tr>
+							<tr>
+								<td> <h2>{{ebayResultsName[i]}}</h2>
+								 <h2>${{ebayResultsPrice[i]}} AUD</h2></td>
+							</tr>
+							<tr> <td><h3>Found on Ebay</h3></td> </tr>
+						</td>
+					</table>
+				</button>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+	<div id="gotostart">
+			<button type="button" id="jumpbutton" onclick="smoothScroll(document.getElementById('starting-area'))">
+				<img src="../static/img/arrow.png" id="arrowup"> </button>
+			</button>
+
+	</div>
+
+
+</body>
+
+<script> 
+	
+	window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { 
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do {
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+
+</script>
+
+{% endblock %}

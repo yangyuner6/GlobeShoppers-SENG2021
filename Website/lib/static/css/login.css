@@ -1,0 +1,109 @@
+        body {
+      background-image: url("../img/login6.png");
+      margin-top: 5px !important;
+      height: 100%;
+      width:100%;
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    #webname {
+      	width: 30%;
+      	margin-left: 35%;
+    }
+
+    #redirectionmessage {
+
+      text-align: center;
+     
+    }
+    body {
+		margin-top: 50px !important;
+		background-repeat: no-repeat;
+		height: 100%;
+		background-attachment: fixed;
+	}
+    html{
+		height: 100%;
+	}
+    #webname {
+      	width: 30%;
+      	margin-left: 35%;
+    }
+	.pure-form {
+		border: none;
+		background: #FFFFFF;
+		width: 325px;
+		height: 430px;
+		margin: auto;
+		border-radius: 25px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	.pure-control-group {
+		margin-left: 50px;
+		padding: 3px;
+		padding-bottom: 13.5px;
+	}
+	.fa-user-circle {
+		color: #A8D0E6;
+		margin-left: 110px;
+		padding-bottom: 15px;
+		padding-top: 15px;
+	}
+	.formFooter {
+		background-color: #FFFFFF;
+		padding: 15px;
+  		text-align: center;
+  		border-radius: 0 0 25px 25px;
+  		border-top: 1px solid #A8D0E6;
+	}
+	a {
+		text-decoration: none;
+		color: #A8D0E6;
+	}
+	.underlineHover:after {
+		display: block;
+		width: 0;
+	  	height: 2px;
+		background-color: #A8D0E6;
+		content: "";
+		transition: width 0.2s;
+	}
+	.underlineHover:hover {
+		color: #374785;
+	}
+	.underlineHover:hover:after{
+		width: 100%;
+	}
+	h2 {
+	    text-align: center;
+	    font-size: 16px;
+	    font-weight: 600;
+	    text-transform: uppercase;
+	    display:inline-block;
+	    margin: 10px 8px 5px 65px;
+	}
+	h2.inactive {
+  		color: #FAA4A4;
+	}
+
+	h2.active {
+  		color: #374785;
+  		border-bottom: 2px solid #A8D0E6;
+	}
+	.aFont {
+		font-size: 13px;
+	}
+	.error {
+		font-size: 14px;
+		color: red;
+		display: flex;
+		padding-left: 50px;
+	}
+	.pure-button {
+        border-radius: 20px !important;
+        background-color: #A8D0E6 !important;
+        color: white !important;
+        margin-left: 125px;
+        margin-bottom: 17px;
+    }

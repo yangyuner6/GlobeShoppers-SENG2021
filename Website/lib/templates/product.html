@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block body %}
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+</head>
+<body>
+	<div id="product_name">
+		<h1>{{product["_name"]}}</h1>
+	</div>
+	<div id="product_pic">
+		<img class="img" src={{product["_image"]}}>
+	</div>
+	<div id="requestOrHelp">
+		<div class="iWantThis" >
+			
+			<br><br>
+			<h2>${{product["_audPrice"]}}AUD {{product["_otherPrice"]}}{{product["_otherCurrency"]}}</h2>
+			<br><h3>Purchased from {{product["_country"]}}</h3><br><br>
+			<button onclick="openForm()" class="pure-button" id="reuqest_button">I Want This</button>
+
+
+			<div class = "popup" id = "myForm"> 
+				<form method = "POST" class = "pure-form ">
+            		<fieldset>
+						<div  class="pure-control-group">
+							<h3>{{product["_name"]}}</h3>
+							${{product["_audPrice"]}} AUD each<br>
+							Product from {{product["_country"]}}<br><br>
+							Quantity 
+							<select style="color:black"  name = "quantity">
+		      					<option value="1">1</option>
+							    <option value="2">2</option>
+							    <option value="3">3</option>
+							    <option value="4">4</option>
+							    <option value="5">5</option>
+					    	</select>
+							{% if loggedIn == True %}
+							<button class = "pure-button" onclick = "confirmationFunction()" name="want_button">Submit</button>
+							{% else %}
+							<button class = "pure-button" name="want_button">Submit</button>
+							{%endif%}
+							<button class = "pure-button" onclick = "closeForm2()">Cancel</button>
+						</div>
+					</fieldset>
+				</form>
+				
+			</div>
+			
+			
+
+		</div>
+
+		{% for r in requests %}
+		<div class="offerHelp">
+			<br><br>
+			
+
+			<div>
+				<div class="left">
+					<h2 onclick="window.location.href= '{{url_for('otherProfile',user= r.get("_customer"))}}';">{% if requesters[loop.index-1] != 0 %}
+							<img width = 35px height = 35px src = '{{requesters[loop.index-1]}}'>
+                            {% else %}
+                            <i class="fas fa-user-circle fa-6x"></i>
+                            {% endif %}
+							<span class = username>{{r.get("_customer")}}</span></h2><br>
+					<h3>Willing to pay</h3>
+					<h3>Quantity</h3>
+				</div>
+				<div class="right">
+					<br><br><br>
+					<h3>${{r.get("_totalAudPrice")}}AUD {{r.get("_totalOtherPrice")}}{{r.get("_otherCurrency")}}</h3>
+					<h3>{{r.get("_quantity")}} </h3>
+				</div>
+				<div class="button">
+                    {%if CurrentUser == r.get("_customer")%}
+                    <button class = "pure-button" type = "button" disabled>Offer Help</button>
+                    {%else%}
+					<button onclick="openForm2()" class="pure-button">Offer Help</button>
+					{% endif %}
+				</div>
+			
+			</div>
+
+			<div class = "popup" id = "myForm2"> 
+				<form method = "POST" class = "pure-form ">
+            		<fieldset>
+						<div  class="pure-control-group">
+							<h3>{{product["_name"]}}</h3>
+						    ${{product["_audPrice"]}} AUD each<br>
+						    Quantity: {{product["_quantity"]}}<br>
+							Product from {{product["_country"]}}<br>
+
+							<h3>Send Message to {{r.get("_customer")}}</h3>
+							<input style="color:black" type="text" name="message" placeholder = "Enter message..."><br><br>
+							{% if loggedIn == True %}
+							<button class = "pure-button" onclick = "confirmationFunction()" name={{r.get("_customer")}}>Submit</button>
+							{% else %}
+							<button class = "pure-button" name={{r.get("_customer")}}>Submit</button>
+							{%endif%}
+							<button class = "pure-button" onclick = "closeForm2()">Cancel</button>
+						</div>
+					</fieldset>
+				</form>
+				
+			</div>
+			
+		</div>
+		{% endfor %}
+	</div>
+	<div id="gotostart">
+			<button type="button" id="jumpbutton" onclick="smoothScroll(document.getElementById('starting-area'))">
+				<img src="../static/img/arrow.png" id="arrowup"> </button>
+			</button>
+
+	</div>
+</body>
+<script> 
+	
+	function confirmationFunction() {
+		alert("Offer made!")
+	}
+	function openForm() {
+  		document.getElementById("myForm").style.display = "block";
+  		document.getElementById("myForm2").style.display = "none";
+	}
+	function closeForm() {
+  		document.getElementById("myForm").style.display = "none";
+	}
+	function openForm2() {
+  		document.getElementById("myForm2").style.display = "block";
+  		document.getElementById("myForm").style.display = "none";
+	}
+	function closeForm2() {
+  		document.getElementById("myForm2").style.display = "none";
+	}
+
+	window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { 
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do {
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+
+</script>
+
+{% endblock %}
