@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Verdana;
+            font-size: 13px;
+        }
+        .profile
+        {
+            position: relative;
+            width: 42px;
+            height: 40px;
+            border: 0;
+        }
+        .logo
+        {
+            position: absolute;
+            top: 17px;
+            left: 56.5px;
+            z-index: 2;
+            width:100px;
+            height:75px;
+            border:0
+        }
+        .searchicon
+        {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            border: 0;
+        }
+
+        .nav
+        {
+            overflow: hidden;
+            background-color: #8BCBC8;
+        }
+
+        .nav a{
+            float: right;
+            font-size: 15px;
+            color: white;
+            padding: 35px 10px;
+            text-decoration: none;
+        }
+
+        .searchicon
+        {
+            position: absolute;
+            top: -1px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            border: 0;
+        }
+        form.search input[type = text] {
+            position: absolute;
+            width: 25%;
+            top: 8%;
+            left: 25%;
+            background-color: white;
+            font-size: 13px;
+        }
+        form.search button {
+            position: absolute;
+            padding: 5px;
+            top: 8%;
+            left: 51%;
+            width: 4%;
+            height: 4%;
+            background: #ccc;
+            border: 1px solid grey;
+            cursor: pointer;
+        }
+        form.search button:hover {
+            background: #10C1;
+        }
+        
+
+        .dbuttons {
+            background-color: #8BCBC8;
+            font-size: 15px;
+            border: none;
+            padding: 14px 16px;
+            margin: 0;
+        }
+        .dropdown {
+            float: right;
+            overflow: hidden;
+            border: none;
+            padding: 14px 16px;
+            margin: 0;
+            background-color: #8BCBC8;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            display: none;
+            z-index: 1;
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            float: none;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .dropdown-content a:hover 
+        {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content 
+        {
+            display: block;
+        }
+
+        .dropdown:hover .dbuttons 
+        {
+            background-color: #DAE9E4;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+        .inlineTable {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "nav">
+        <a href = "home.html"><img src="logo.png" alt="Home" class = "logo"></a>
+        <div class="dropdown">
+            <button class="dbuttons"><img src="profile.png" class = profile></button>
+                <div class="dropdown-content">
+                    <a href="CurrentProfilePage.html">View Profile</a>
+                    <a href = "home2.html">Logout</a>
+                </div>
+        </div>
+        <a href="addTrip.html">Add trip</a>
+        <a href="inboxMessage.html">Inbox</a>
+        <form class="search" action="searchResults.html">
+            <input type="text" placeholder="Search..." name="searchInput">
+                    <button type="submit" onclick = "location.href = 'sear"><img src = "search.png" class = "searchicon"></button>
+        </form>
+    </div>
+        <h2 style = "padding-left: 50px;">Trending</h2>
+    <!-- 3 pictures should look like polaroid layout picture and underneath is item name price country -->
+    <table style = "margin-left: 50px;"  class = "inlineTable">
+        <tr >
+            <th width = "200px"> <a href = "product.html"> <img src = "https://i1.wp.com/cosmeperks.com/wp-content/uploads/2018/02/3CE-Velvet-Lip-Tint-Daffodil-Review-min.jpg?fit=2000%2C1598&ssl=1&fbclid=IwAR1m7vAEPnHXxoWHY4xgvPfDJJRyv9GlvGtcFWR_UkX1WjkvQDDYAoLSQFg" alt = "product image" width="150" height="150"> </a></th>
+        </tr>
+        <tr>
+            <th>
+                <a href = "product.html"><h4 style = "display:inline;" style = "text-align:left;"> Velvet Lip Tint </h4></a>
+                <h5 style = "display:inline;" style = "text-align:right;"> $15 </h5>
+                <p style = "text-align:left; margin-left:25px;"><sup> South Korea </sup></p>
+            </th> 
+        </tr>
+    </table>
+    <table style = "margin-left:20px;"class = "inlineTable">
+        <tr>
+            <th width = "200px"><img src = "https://static1.squarespace.com/static/58e6ab96ebbd1a572ac4d3e7/t/5c3e37624ae2371e3a4d7015/1547594106522/swatch_light_gray.jpg?format=1000w" alt = "empty" width = "150" height = "150"></th>
+        </tr>
+        <tr>
+            <th>
+                <h4 style = "display:inline;" style = "text-align:left;">  Item Name </h4>
+                <h5 style = "display:inline;" style = "text-align:right;"> $price </h5>
+                <p style = "text-align:left; margin-left:25px;"><sup> Country </sup></p>
+            </th>
+        </tr>
+    </table>
+    <table style = "margin-left:20px;"class = "inlineTable">
+        <tr>
+            <th width = "200px"><img src = "https://static1.squarespace.com/static/58e6ab96ebbd1a572ac4d3e7/t/5c3e37624ae2371e3a4d7015/1547594106522/swatch_light_gray.jpg?format=1000w" alt = "empty" width = "150" height = "150"></th>
+        </tr>
+        <tr>
+            <th>
+                <h4 style = "display:inline;" style = "text-align:left;"> Item Name </h4>
+                <h5 style = "display:inline;" style = "text-align:right;"> $price </h5>
+                <p style = "text-align:left; margin-left:25px;"><sup> Country </sup></p>
+            </th>
+        </tr>
+    </table>
+    <!-- on the side a lined box labelled Request Product (upload should be just a button labelled browse) lines up with trending-->
+    <table style = "margin-left:150px;" class = "inlineTable">
+        <tr class = "noBorder"><th><h2> REQUEST PRODUCT </h2>
+        <p>  Product Name <input type="text" name="productname"> </p>
+        <p> Upload Picture <button type = "button"">Browse</button></p>
+        <p> Product Link <input type="text" name="productlink"></p>
+        <p> Country
+                <select>
+                        <option value = "Japan">Japan</option>
+                        <option value = "USA">USA</option>
+                        <option value = "Other">Other</option>
+                 </select>
+        </p>
+        <p> Category
+                   <select>
+                        <option value = "Household">Household</option>
+                        <option value = "Fashion">Fashion</option>
+                        <option value = "Beauty">Beauty</option>
+                        <option value = "Sports">Sports</option>
+                        <option value = "Food/Drink">Food/Drink</option>
+                        <option value = "Other">Other</option>
+                    </select>
+          </p>
+        <p>Price AUD $ <input type="text" name="price"></p>
+        <p>Quantity
+                    <select>
+                        <option value = "1">1</option>
+                        <option value = "2">2</option>
+                        <option value = "3">3</option>
+                        <option value = "4">4</option>
+                        <option value = "5">5</option>
+                    </select>
+                    </p>
+
+        <p><button onclick= "myMessage()">Submit Request</button></p>
+        </tr>
+    </table>
+    <script>
+    function myMessage() {
+       alert("Your request was successful!");
+    }
+    </script>
+    <h2 style = "padding-left: 50px;">Categories</h2>
+    <br>
+    <!-- 6 buttons 5 disabled saying: toys, sport, fashion, beauty, food/drink, other -->
+    <a href = "category.html">
+    <button type = "submit" style = "margin-left:50px;">Beauty</button> </a>
+    <button type = "button" disabled style = "margin-left:200px;">Sports</button>
+    <button type = "button" disabled style = "margin-left:200px;">Fashion</button> <br><br>
+    <button type = "button" disabled style = "margin-left:50px;">Household</button>
+    <button type = "button" disabled style = "margin-left:160px;">Food/Drink</button>
+    <button type = "button" disabled style = "margin-left:200px;">Other</button>
+
+</body>
+</html>

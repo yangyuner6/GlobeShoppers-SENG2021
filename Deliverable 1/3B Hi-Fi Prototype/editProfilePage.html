@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		body {
+			font-family: Verdana;
+			font-size: 13px;
+		}
+		.profile
+		{
+			position: relative;
+			width: 42px;
+			height: 40px;
+			border: 0;
+		}
+		.logo
+		{
+			position: absolute;
+			top: 17px;
+			left: 56.5px;
+			z-index: 2;
+			width:100px;
+			height:75px;
+			border:0
+		}
+		.searchicon
+		{
+			position: absolute;
+			top: 4px;
+			left: 5px;
+			width: 20px;
+			height: 20px;
+			border: 0;
+		}
+
+		.nav
+		{
+			overflow: hidden;
+			background-color: #8BCBC8;
+		}
+
+		.nav a{
+			float: right;
+			font-size: 15px;
+			color: white;
+			padding: 35px 10px;
+			text-decoration: none;
+		}
+
+		.searchicon
+		{
+			position: absolute;
+			top: -1px;
+			left: 4px;
+			width: 20px;
+			height: 20px;
+			border: 0;
+		}
+		form.search input[type = text] {
+			position: absolute;
+			width: 25%;
+			top: 8%;
+			left: 25%;
+			background-color: white;
+			font-size: 13px;
+		}
+		form.search button {
+			position: absolute;
+			padding: 5px;
+			top: 8%;
+			left: 51%;
+ 		 	width: 4%;
+ 		 	height: 4%;
+  			background: #ccc;
+ 			border: 1px solid grey;
+  			cursor: pointer;
+		}
+		form.search button:hover {
+  			background: #10C1;
+		}
+		
+
+		.dbuttons {
+ 			background-color: #8BCBC8;
+  			font-size: 15px;
+  			border: none;
+  			padding: 14px 16px;
+  			margin: 0;
+  		}
+		.dropdown {
+  			float: right;
+  			overflow: hidden;
+  			border: none;
+  			padding: 14px 16px;
+  			margin: 0;
+  			background-color: #8BCBC8;
+		}
+
+		.dropdown-content {
+		  	position: absolute;
+		  	display: none;
+		  	z-index: 1;
+		  	background-color: #f1f1f1;
+		}
+
+		.dropdown-content a {
+			color: black;
+			float: none;
+			text-align: left;
+			text-decoration: none;
+			display: block;
+			padding: 10px 15px;
+		}
+
+		.dropdown-content a:hover 
+		{
+			background-color: #ddd;
+		}
+
+		.dropdown:hover .dropdown-content 
+		{
+			display: block;
+		}
+
+		.dropdown:hover .dbuttons 
+		{
+			background-color: #DAE9E4;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class = "nav">
+		<a href = "home.html"><img src="logo.png" alt="Home" class = "logo"></a>
+		<div class="dropdown">
+  			<button class="dbuttons"><img src="profile.png" class = profile></button>
+  				<div class="dropdown-content">
+    				<a href="CurrentProfilePage.html">View Profile</a>
+    				<a href = "home2.html">Logout</a>
+  				</div>
+		</div>
+		<a href="addTrip.html">Add trip</a>
+		<a href="inboxMessage.html">Inbox</a>
+		<form class="search" action="searchResults.html">
+  			<input type="text" placeholder="Search..." name="searchInput">
+  				<form action = "insert search page">
+  					<button type="submit"><img src = "search.png" class = "searchicon"></button>
+  				</form>
+		</form>
+	</div>
+	<h1 style="margin-left: 40px;">Edit Profile</h1>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-7">
+			<table class="table borderless" style="margin-bottom: 0">
+				<tbody>
+					<tr>
+						<td width="80px" style="align:left;vertical-align: top">
+							<img src="https://static.thenounproject.com/png/630729-200.png" class="img-circle" width="60px">
+						</td>
+						<td><div>Replace profile pic</div>
+						<div><button>browse</button></div>
+
+					</td>
+				</tr>
+			</tbody>
+		</table></div></div>
+	<form method="POST" style="padding-left: 30px;">
+		 Username<input style="margin-left: 40px;" type="text" input placeholder="username123" name="username"/> <br><br>
+         Email<input style="margin-left: 40px;" type="text" input placeholder="username123@gmail.com" name="email"/> <br><br>
+         About me<input style="margin-left: 20px;" type="text" input placeholder="hi my name is " name="aboutMe"/> <br><br>
+         Contact number<input style="margin-left: 20px;" type="text"  name="contactNo"/> <br><br>
+
+         <br>
+
+         <button type="button" onclick = "confirmationFunction()">Edit</button>
+         <button type="button" onclick="location.href='CurrentProfilePage.html'">Cancel</button>
+     </form>
+</body>
+<script>
+	function confirmationFunction() {
+		if(confirm("Changes successfully made!")) {
+			window.location.href = "CurrentProfilePage.html"
+		}
+	}
+</script>
+</html>
+

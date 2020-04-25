@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Verdana;
+            font-size: 13px;
+        }
+        .profile
+        {
+            position: relative;
+            width: 42px;
+            height: 40px;
+            border: 0;
+        }
+        .logo
+        {
+            position: absolute;
+            top: 17px;
+            left: 56.5px;
+            z-index: 2;
+            width:100px;
+            height:75px;
+            border:0
+        }
+        .searchicon
+        {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            border: 0;
+        }
+
+        .nav
+        {
+            overflow: hidden;
+            background-color: #8BCBC8;
+        }
+
+        .nav a{
+            float: right;
+            font-size: 15px;
+            color: white;
+            padding: 35px 10px;
+            text-decoration: none;
+        }
+
+        .searchicon
+        {
+            position: absolute;
+            top: -1px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            border: 0;
+        }
+        form.search input[type = text] {
+            position: absolute;
+            width: 25%;
+            top: 8%;
+            left: 25%;
+            background-color: white;
+            font-size: 13px;
+        }
+        form.search button {
+            position: absolute;
+            padding: 5px;
+            top: 8%;
+            left: 51%;
+            width: 4%;
+            height: 4%;
+            background: #ccc;
+            border: 1px solid grey;
+            cursor: pointer;
+        }
+        form.search button:hover {
+            background: #10C1;
+        }
+        
+
+        .dbuttons {
+            background-color: #8BCBC8;
+            font-size: 15px;
+            border: none;
+            padding: 14px 16px;
+            margin: 0;
+        }
+        .dropdown {
+            float: right;
+            overflow: hidden;
+            border: none;
+            padding: 14px 16px;
+            margin: 0;
+            background-color: #8BCBC8;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            display: none;
+            z-index: 1;
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            float: none;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .dropdown-content a:hover 
+        {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content 
+        {
+            display: block;
+        }
+
+        .dropdown:hover .dbuttons 
+        {
+            background-color: #DAE9E4;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class = "nav">
+        <a href = "home2.html"><img src="logo.png" alt="Home" class = "logo"></a>
+        <div class="dropdown">
+            <button class="dbuttons"><img src="profile.png" class = profile></button>
+                <div class="dropdown-content">
+                    <a href="Login.html">Login</a>
+                </div>
+        </div>
+        <a>Add trip</a>
+        <a>Inbox</a>
+        <form class="search" action="searchResults2.html">
+            <input type="text" placeholder="Search..." name="searchInput">
+                    <button type="submit"><img src = "search.png" class = "searchicon"></button>
+        </form>
+    </div>
+   <h1 style = "padding-left: 50px;"> 1 Search Result </h1>
+   <!-- one result/one product showing -->
+   <table style = "margin-left: 50px;"  class = "inlineTable">
+        <tr >
+            <th width = "200px"> <a href = "product2.html"> <img src = "https://i1.wp.com/cosmeperks.com/wp-content/uploads/2018/02/3CE-Velvet-Lip-Tint-Daffodil-Review-min.jpg?fit=2000%2C1598&ssl=1&fbclid=IwAR1m7vAEPnHXxoWHY4xgvPfDJJRyv9GlvGtcFWR_UkX1WjkvQDDYAoLSQFg" alt = "product image" width="150" height="150"> </a></th>
+        </tr>
+        <tr>
+            <th>
+                <a href = "product2.html"><h4 style = "display:inline;" style = "text-align:left;"> Velvet Lip Tint </h4></a>
+                <h5 style = "display:inline;" style = "text-align:right;"> $15 </h5>
+                <p style = "text-align:left; margin-left:25px;"><sup> South Korea </sup></p>
+            </th> 
+        </tr>
+    </table>
+    
+</body>
+</html>
+
+
+
